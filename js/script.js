@@ -9,26 +9,29 @@ const myInventory = document.getElementById('inventory');
 let currentLocation = 4;
 
 let locations = [];
-locations[0] = "kantine";
-locations[1] = "trap";
-locations[2] = "eind";
-locations[3] = "docentenkamer";
-locations[4] = "gang";
-locations[5] = "medialab";
-locations[6] = "toiletten";
-locations[7] = "klaslokaal";
-locations[8] = "examenlokaal";
+//Prologue
+locations[0] = "BeginForest";
+locations[1] = "ForestCave";
+locations[2] = "FirstMeeting";
+locations[3] = "BeginnersTown";
+locations[4] = "Library";
+locations[5] = "FirstSpellBook";
+locations[6] = "FirstFight";
+locations[7] = "PrinceMeeting";
+
+//Begin Adventure
+locations[8] = "";
 
 images = [];
-images[0] = "room0.jpg";
-images[1] = "room1.jpg";
-images[2] = "room2.jpg";
-images[3] = "room3.jpg";
-images[4] = "room4.jpg";
-images[5] = "room5.jpg";
-images[6] = "room6.jpg";
-images[7] = "room7.jpg";
-images[8] = "room8.jpg";
+images[0] = "";
+images[1] = "";
+images[2] = "";
+images[3] = "";
+images[4] = "";
+images[5] = "";
+images[6] = "";
+images[7] = "";
+images[8] = "";
 
 directions = [];
 directions[0] = ["oost"];
