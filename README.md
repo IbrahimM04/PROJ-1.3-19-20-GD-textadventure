@@ -1,5 +1,5 @@
 ## MaQuest
-gamedeveloper :[jouw naam]
+gamedeveloper : Ibrahim Malsh
 
 ### Korte omschrijving van de game
 ...
