@@ -7,6 +7,8 @@ gamedeveloper : Ibrahim Malsh
  In this game/story, you are that Main Character!
  This game is quite based on your own choses as well, so make the right choices!
 
+ To finish this game you need to find the final spell, which you well get to know in the story.
+
 ---
 #### Producten Werkproces
 | Product  | Link |
