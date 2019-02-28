@@ -14,13 +14,28 @@ locations[0] = "BeginForest";
 locations[1] = "ForestCave";
 locations[2] = "FirstMeeting";
 locations[3] = "BeginnersTown";
-locations[4] = "Library";
+locations[4] = "FirstLibrary";
 locations[5] = "FirstSpellBook";
 locations[6] = "FirstFight";
 locations[7] = "PrinceMeeting";
 
 //Begin Adventure
-locations[8] = "";
+locations[8] = "Guild";
+locations[9] = "HorseStable";
+locations[10] = "StableMerchant";
+locations[11] = "TakeOff";
+locations[12] = "Road1";
+locations[13] = "Road2";
+locations[14] = "Road3";
+locations[15] = "SecondTown";
+locations[16] = "SecondLibrary";
+locations[17] = "SecondSpellBook";
+locations[18] = "ThirdSpellBook";
+locations[19] = "WeaponShop";
+locations[20] = "RustySword";
+locations[21] = "SwordTransformation";
+
+
 
 images = [];
 images[0] = "";
