@@ -4,36 +4,38 @@ const myInput = document.getElementById('myInput');
 const feedback = document.getElementById('feedback');
 const imageLocation = document.getElementById('imageLocation');
 const myDescription = document.getElementById('description');
-const myInventory = document.getElementById('inventory');
+const mySpells = document.getElementById('spells');
+const pickedUp = document.getElementById('pickedUp');
 
-let currentLocation = 4;
+let currentLocation = 0;
 
 let locations = [];
 //Prologue
-locations[0] = "BeginForest";
-locations[1] = "ForestCave";
-locations[2] = "FirstMeeting";
-locations[3] = "BeginnersTown";
-locations[4] = "FirstLibrary";
-locations[5] = "FirstSpellBook";
-locations[6] = "FirstFight";
-locations[7] = "PrinceMeeting";
+locations[0] = "Begin Forest";
+locations[1] = "Forest Cave";
+locations[2] = "First Meeting"
+locations[3] = "Beginners Town";
+locations[4] = "Forest Cave Small Passage";
+locations[5] = "First Fight";
+locations[6] = "First Library";
+locations[7] = "The First Spell Book";
+locations[8] = "Prince Meeting";
 
 //Begin Adventure
-locations[8] = "Guild";
-locations[9] = "HorseStable";
-locations[10] = "StableMerchant";
-locations[11] = "TakeOff";
-locations[12] = "Road1";
-locations[13] = "Road2";
-locations[14] = "Road3";
-locations[15] = "SecondTown";
-locations[16] = "SecondLibrary";
-locations[17] = "SecondSpellBook";
-locations[18] = "ThirdSpellBook";
-locations[19] = "WeaponShop";
-locations[20] = "RustySword";
-locations[21] = "SwordTransformation";
+locations[9] = "Guild";
+locations[10] = "HorseStable";
+locations[11] = "StableMerchant";
+locations[12] = "TakeOff";
+locations[13] = "Road1";
+locations[14] = "Road2";
+locations[15] = "Road3";
+locations[16] = "SecondTown";
+locations[17] = "SecondLibrary";
+locations[18] = "SecondSpellBook";
+locations[19] = "ThirdSpellBook";
+locations[20] = "WeaponShop";
+locations[21] = "RustySword";
+locations[22] = "SwordTransformation";
 
 
 
@@ -49,26 +51,26 @@ images[7] = "";
 images[8] = "";
 
 directions = [];
-directions[0] = ["oost"];
-directions[1] = ["west", "zuid"];
-directions[2] = ["zuid"];
-directions[3] = ["oost"];
-directions[4] = ["noord", "west", "zuid"];
-directions[5] = ["zuid"];
-directions[6] = ["oost"];
-directions[7] = ["noord", "west", "oost"];
-directions[8] = ["noord", "west"];
+directions[0] = ["north", "sourth"];
+directions[1] = ["north", "east"];
+directions[2] = ["north"];
+directions[3] = ["north", "east"];
+directions[4] = ["west"];
+directions[5] = [""];
+directions[6] = ["north"];
+directions[7] = ["spell book", "south"];
+directions[8] = [""];
 
 descriptions = [];
-descriptions[0] = "u staat in een kantine. Hier zitten studenten te eten of computerspelletjes te doen";
-descriptions[1] = "u staat op een trap naar de eerste etage. Om u heen lopen studenten omhoog en omlaag";
-descriptions[2] = "u heeft gewonnen";
-descriptions[3] = "u staat in de lerarenkamer. De leraren eten hier hun lunch of drinken koffie of thee";
-descriptions[4] = "u staat in een gang. Studenten en leraren lopen richting de klaslokalen";
-descriptions[5] = "u staat in het medialab. Hier kan geexperimenteerd worden met bijvoorbeeld virtual reality brillen";
-descriptions[6] = "u staat bij de toiletten";
-descriptions[7] = "u staat in een klaslokaal. De tafels staan recht achter elkaar en voorin is een projector en een smartboard";
-descriptions[8] = "u staat in het examenlokaal. Hier zijn de vierdejaars studenten bezig met het voorbereiden van hun examen";
+descriptions[0] = "";
+descriptions[1] = "";
+descriptions[2] = "";
+descriptions[3] = "";
+descriptions[4] = "";
+descriptions[5] = "";
+descriptions[6] = "";
+descriptions[7] = "";
+descriptions[8] = "";
 
 myInput.addEventListener('keydown', getInput, false);
 
@@ -76,24 +78,24 @@ function getInput(evt) {
   if (evt.key == "Enter") {
     let inputArray = myInput.value.split(" ");
 
-    if (inputArray[0] == "ga") {
+    if (inputArray[0] == "go") {
       if (directions[currentLocation].indexOf(inputArray[1]) != -1) {
         switch (inputArray[1]) {
-          case "noord":
-            currentLocation -= 3;
-            break;
-          case "zuid":
-            currentLocation += 3;
-            break;
-          case "oost":
+          case "north":
             currentLocation += 1;
             break;
-          case "west":
+          case "south":
             currentLocation -= 1;
+            break;
+          case "east":
+            currentLocation += 3;
+            break;
+          case "west":
+            currentLocation -= 3;
             break;
         }
       } else {
-        feedback.innerHTML = "dat mag niet";
+        feedback.innerHTML = "That's not possible!";
         setTimeout(removeFeedback, 2000);
 
       }
@@ -101,18 +103,19 @@ function getInput(evt) {
       myInput.value = "";
     }
 
-    if (inputArray[0] == "pak") {
-      console.log('ga wat pakken');
+    if (inputArray[0] == "grab") {
+      pickedUp.innerHTML = "You've picked up: " + 
+      console.log('Grab something');
       myInput.value = "";
     }
 
-    if (inputArray[0] == "gebruik"){
-      console.log('ga wat gebruiken');
+    if (inputArray[0] == "use"){
+      console.log('Use something');
       myInput.value = "";
     }
 
-    if (inputArray[0] != "ga" && inputArray[0] != "pak" && inputArray[0] != "gebruik" ){
-      feedback.innerHTML = "mogelijke commando's zijn: ga, pak, gebruik en help";
+    if (inputArray[0] != "go" && inputArray[0] != "grab" && inputArray[0] != "use" ){
+      feedback.innerHTML = "usable comands are: go, grab, use and help";
       myInput.value = "";
       setTimeout(removeFeedback, 4000);
     }
@@ -124,12 +127,12 @@ function giveLocation() {
   divLocation.innerHTML = locations[currentLocation];
   myDescription.innerHTML = descriptions[currentLocation];
   imageLocation.src = "media/" + images[currentLocation];
-  myDirections = "mogelijke richtingen zijn: ";
+  myDirections = "Possible directions: ";
   for (let i = 0; i < directions[currentLocation].length; i++) {
     myDirections += "<li>" + directions[currentLocation][i] + "</li>";
   }
   myPossibilities.innerHTML = myDirections;
-  myInventory.innerHTML = "uw inventory is leeg";
+  mySpells.innerHTML = "You currently have no spells.";
 }
 
 function removeFeedback() {
