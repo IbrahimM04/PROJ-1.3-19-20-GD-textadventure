@@ -1,8 +1,11 @@
 ## MaQuest
 gamedeveloper : Ibrahim Malsh
 
-### Korte omschrijving van de game
-...
+### Short description
+ This game is based of the manga genre, "Isekai", Isekai is a genre where the Main Character gets transported to a different world that in no way, shape or form represents the good old "Earth". For example, it's a world with swords & magic, or it's a world with the best technology known to mankind.
+
+ In this game/story, you are that Main Character!
+ This game is quite based on your own choses as well, so make the right choices!
 
 ---
 #### Producten Werkproces
